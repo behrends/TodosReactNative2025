@@ -1,4 +1,11 @@
-import { Button, Modal, StyleSheet, Text, View } from 'react-native';
+import {
+  Button,
+  Modal,
+  StyleSheet,
+  TextInput,
+  Text,
+  View,
+} from 'react-native';
 
 export default function TodoModal({ visible, onCancel }) {
   return (
@@ -10,6 +17,10 @@ export default function TodoModal({ visible, onCancel }) {
       <View style={styles.container}>
         <View style={styles.content}>
           <Text style={styles.text}>Todo hinzufügen</Text>
+          <TextInput
+            style={styles.input}
+            placeholder="Todo eingeben"
+          />
           <View style={styles.buttons}>
             <Button title="Abbrechen" onPress={onCancel} />
             <Button title="Speichern" onPress={() => {}} />
@@ -49,5 +60,14 @@ const styles = StyleSheet.create({
   },
   buttons: {
     flexDirection: 'row',
+  },
+  input: {
+    borderWidth: 1,
+    borderColor: 'orange',
+    borderRadius: 5,
+    fontSize: 24,
+    padding: 10,
+    marginVertical: 20,
+    width: '90%',
   },
 });
