@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Button,
   Modal,
@@ -8,6 +9,7 @@ import {
 } from 'react-native';
 
 export default function TodoModal({ visible, onCancel }) {
+  const [todo, setTodo] = useState('');
   return (
     <Modal
       visible={visible}
@@ -20,6 +22,8 @@ export default function TodoModal({ visible, onCancel }) {
           <TextInput
             style={styles.input}
             placeholder="Todo eingeben"
+            value={todo}
+            onChangeText={setTodo}
           />
           <View style={styles.buttons}>
             <Button title="Abbrechen" onPress={onCancel} />
