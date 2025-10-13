@@ -2,15 +2,16 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 function Todo(props) {
-  return <Text style={styles.todoText}>{props.text}</Text>;
+  const { children } = props;
+  return <Text style={styles.todoText}>{children}</Text>;
 }
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Todo text="Einkaufen" />
-      <Todo text="Sport" />
-      <Todo text="React Native lernen" />
+      <Todo>Einkaufen</Todo>
+      <Todo>Sport</Todo>
+      <Todo>React Native lernen</Todo>
       <StatusBar style="auto" />
     </View>
   );
