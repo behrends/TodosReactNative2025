@@ -1,17 +1,17 @@
 import { Button, Modal, StyleSheet, Text, View } from 'react-native';
 
-export default function TodoModal({ visible }) {
+export default function TodoModal({ visible, onCancel }) {
   return (
     <Modal
       visible={visible}
       animationType="slide"
-      onRequestClose={() => {}}
+      onRequestClose={onCancel}
     >
       <View style={styles.container}>
         <View style={styles.content}>
           <Text style={styles.text}>Todo hinzufügen</Text>
           <View style={styles.buttons}>
-            <Button title="Abbrechen" onPress={() => {}} />
+            <Button title="Abbrechen" onPress={onCancel} />
             <Button title="Speichern" onPress={() => {}} />
           </View>
         </View>

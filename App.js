@@ -24,7 +24,7 @@ export default function App() {
       <View style={{ marginBottom: 40 }}>
         <Button
           title="Todo hinzufügen"
-          onPress={() => alert('Neues TODO!')}
+          onPress={() => setModalVisible(true)}
         />
       </View>
       <StatusBar style="auto" />
