@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
-import { StyleSheet, View } from 'react-native';
+import { Button, StyleSheet, View } from 'react-native';
 import TodoList from './components/TodoList';
 
 const todos = [
@@ -13,6 +13,13 @@ export default function App() {
   return (
     <View style={styles.container}>
       <TodoList todos={todos} />
+      {/* TODO safe area context einbauen */}
+      <View style={{ marginBottom: 40 }}>
+        <Button
+          title="Todo hinzufügen"
+          onPress={() => alert('Neues TODO!')}
+        />
+      </View>
       <StatusBar style="auto" />
     </View>
   );
