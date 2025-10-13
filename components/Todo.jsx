@@ -1,18 +1,23 @@
 import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import Checkbox from 'expo-checkbox';
 
 export default function Todo({ children }) {
   const [done, setDone] = useState(false);
+  const doneStyle = done
+    ? { textDecorationLine: 'line-through' }
+    : {};
   return (
-    <View style={styles.container}>
-      <Checkbox
-        style={styles.checkbox}
-        value={done}
-        onValueChange={setDone}
-      />
-      <Text style={styles.todoText}>{children}</Text>
-    </View>
+    <Pressable onPress={() => setDone(!done)}>
+      <View style={styles.container}>
+        <Checkbox
+          style={styles.checkbox}
+          value={done}
+          onValueChange={setDone}
+        />
+        <Text style={[styles.todoText, doneStyle]}>{children}</Text>
+      </View>
+    </Pressable>
   );
 }
 
