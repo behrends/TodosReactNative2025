@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
 import { Button, StyleSheet, View } from 'react-native';
 import TodoList from './components/TodoList';
+import TodoModal from './components/TodoModal';
 
 const todos = [
   { id: 1, text: 'Einkaufen' },
@@ -10,8 +12,13 @@ const todos = [
 ];
 
 export default function App() {
+  const [modalVisible, setModalVisible] = useState(false);
   return (
     <View style={styles.container}>
+      <TodoModal
+        visible={modalVisible}
+        onCancel={() => setModalVisible(false)}
+      />
       <TodoList todos={todos} />
       {/* TODO safe area context einbauen */}
       <View style={{ marginBottom: 40 }}>
