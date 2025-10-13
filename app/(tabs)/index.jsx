@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
 import { Button, StyleSheet, View } from 'react-native';
-import TodoList from './components/TodoList';
-import TodoModal from './components/TodoModal';
+import TodoList from '../../components/TodoList';
+import TodoModal from '../../components/TodoModal';
 
 const data = [
   { id: 1, text: 'Einkaufen' },
