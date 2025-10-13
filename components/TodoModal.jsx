@@ -8,7 +8,7 @@ import {
   View,
 } from 'react-native';
 
-export default function TodoModal({ visible, onCancel }) {
+export default function TodoModal({ visible, onCancel, onSave }) {
   const [todo, setTodo] = useState('');
   return (
     <Modal
@@ -27,7 +27,7 @@ export default function TodoModal({ visible, onCancel }) {
           />
           <View style={styles.buttons}>
             <Button title="Abbrechen" onPress={onCancel} />
-            <Button title="Speichern" onPress={() => {}} />
+            <Button title="Speichern" onPress={() => onSave(todo)} />
           </View>
         </View>
       </View>
