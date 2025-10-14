@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import Constants from 'expo-constants';
 import { Button, StyleSheet, View } from 'react-native';
 import TodoList from '../../components/TodoList';
 import TodoModal from '../../components/TodoModal';
@@ -43,6 +42,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: Constants.statusBarHeight,
   },
 });
