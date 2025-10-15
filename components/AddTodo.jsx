@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, StyleSheet, TextInput, View } from 'react-native';
 
-export default function AddTodo({ addTodo }) {
+export default function AddTodo({ onAddTodo }) {
   const [inEditMode, setEditMode] = useState(false);
   return (
     <View style={{ marginVertical: 20, width: '80%' }}>
@@ -14,7 +14,7 @@ export default function AddTodo({ addTodo }) {
           onSubmitEditing={({ nativeEvent: { text } }) => {
             const value = text.trim();
             if (!value) return; // leere ignorieren
-            addTodo(value);
+            onAddTodo(value);
             setEditMode(false);
           }}
           onBlur={() => setEditMode(false)} // Abbrechen bei Fokusverlust

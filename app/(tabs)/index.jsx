@@ -15,7 +15,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <AddTodo
-        addTodo={(text) => {
+        onAddTodo={(text) => {
           if (!text || !text.trim()) return; // leere ignorieren
           const newTodo = {
             id: todos.length + 1,
