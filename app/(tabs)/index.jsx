@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Button, StyleSheet, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import TodoList from '../../components/TodoList';
-import TodoModal from '../../components/TodoModal';
+import AddTodo from '../../components/AddTodo';
 
 const data = [
   { id: 1, text: 'Einkaufen' },
@@ -11,26 +11,20 @@ const data = [
 ];
 
 export default function App() {
-  const [modalVisible, setModalVisible] = useState(false);
   const [todos, setTodos] = useState(data);
   return (
     <View style={styles.container}>
-      <TodoModal
-        visible={modalVisible}
-        onCancel={() => setModalVisible(false)}
-        onSave={(todo) => {
-          setTodos([...todos, { text: todo, id: todos.length + 1 }]);
-          setModalVisible(false);
+      <AddTodo
+        addTodo={(text) => {
+          if (!text || !text.trim()) return; // leere ignorieren
+          const newTodo = {
+            id: todos.length + 1,
+            text: text,
+          };
+          setTodos([...todos, newTodo]);
         }}
       />
       <TodoList todos={todos} />
-      {/* TODO safe area context einbauen */}
-      <View style={{ marginBottom: 40 }}>
-        <Button
-          title="Todo hinzufügen"
-          onPress={() => setModalVisible(true)}
-        />
-      </View>
       <StatusBar style="auto" />
     </View>
   );
