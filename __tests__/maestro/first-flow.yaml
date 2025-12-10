@@ -1,0 +1,7 @@
+appId: host.exp.Exponent # iOS Expo Go
+---
+- assertVisible: 'Todo hinzufügen'
+- tapOn: 'Todo hinzufügen'
+- inputText: 'Check out Maestro!'
+- pressKey: Enter
+- assertVisible: 'Check out Maestro!'
